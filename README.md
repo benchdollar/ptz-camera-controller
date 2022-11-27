@@ -24,5 +24,7 @@ http://192.168.178.200/cgi-bin/ptzctrl.cgi?ptzcmd&poscall&1
 
 To store the current position as a preset, simply exchange the command `poscall` by `posset`.
 
+## Picture Credits
 
+The icon is from [shmector.com](https://shmector.com/free-vector/web/camera_icon/6-0-1221), licensed under [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/).
 
