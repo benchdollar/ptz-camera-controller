@@ -2,7 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Mock API with Mockoon
+
+The folder `./api` contains the [Mockoon](https://mockoon.com) configuration to mock the PTZ camera API as it is used by this project.
+
+## Available NPM Scripts
 
 In the project directory, you can run:
 

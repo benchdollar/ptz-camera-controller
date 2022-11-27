@@ -1,0 +1,147 @@
+{
+  "uuid": "1a14bcfa-e924-44a6-b0e1-01cb0032d6df",
+  "lastMigration": 24,
+  "name": "Ptz camera api",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3003,
+  "hostname": "0.0.0.0",
+  "routes": [
+    {
+      "uuid": "03fc3359-a16a-4714-a4bc-c6b4972ea362",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "",
+      "responses": [
+        {
+          "uuid": "2d363afa-c0f0-4d08-bdc5-e1684cd7e6c7",
+          "body": "<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>PTZ Camera</title>\r\n  </head>\r\n  <body>\r\n    The index page delivered by the PTZ Camera\r\n  </body>\r\n</html>",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Default route to check for availability. Serves the PTZ website.",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "text/html"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "0b1e04ca-bc72-43bc-8cc8-dd2673f2fc08",
+      "documentation": "The deeplink to control the positions",
+      "method": "get",
+      "endpoint": "cgi-bin/:script",
+      "responses": [
+        {
+          "uuid": "01a9c3d4-4a7c-4693-b08b-87bdb28a8ddd",
+          "body": "{\n  \"script\" : \"{{urlParam 'script'}}\",\n  \"query\" : {{queryParam}}\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "The true API simply returns nothing",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "script",
+              "value": "ptzctrl.cgi",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "query",
+              "modifier": "ptzcmd",
+              "value": "",
+              "invert": true,
+              "operator": "null"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        },
+        {
+          "uuid": "68320280-4f87-415f-9c04-6a0fb3754398",
+          "body": "{\n  \"error\" : \"bad request\"\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "",
+              "value": "ptzctrl.cgi",
+              "invert": true,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": []
+}
