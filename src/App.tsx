@@ -3,25 +3,26 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import IconButton from '@mui/material/IconButton';
 import Drawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
+import { Stack } from '@mui/material';
 import './App.css';
+import PresetBox from './components/PresetBox';
+
+
+const cameraPresets = Array.of("1", "2", "3", "4", "5");
 
 
 function App() {
   return (
-    <div className="App">
-      <Drawer variant="permanent" anchor="right">
-        <Box className="Sidebar">
-        <IconButton color="primary" aria-label="Settings Menu">
-          <SettingsIcon/>
-        </IconButton>
-        </Box>
-      </Drawer>
-      <div className="PresetButton">Preset 1</div>
-      <div className="PresetButton">Preset 2</div>
-      <div className="PresetButton">Preset 3</div>
-      <div className="PresetButton">Preset 4</div>
-      <div className="PresetButton">Preset 5</div>
-    </div>
+    <Box className="App">
+      <Stack className="PresetStack" direction={"row"} spacing={2}>
+        {cameraPresets.map( element => {
+          return <PresetBox title={"Preset " + element} key={element} />
+        })}
+      </Stack>
+      <Box className='MenuBar'>
+        <IconButton color='primary' aria-label='Settings Menu'><SettingsIcon/></IconButton>
+      </Box>
+    </Box>
   );
 }
 

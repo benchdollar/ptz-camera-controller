@@ -1,0 +1,18 @@
+.PresetBox {
+  /*flex: 1 0 auto;*/
+  border: 1px solid red;
+}
+
+.PresetTitle {
+  overflow: 'hidden'!important;
+  text-overflow: 'ellipsis';
+  white-space: 'nowrap';
+  width: 100%;
+  max-width: 100%;
+}
+
+.PresetImage {
+  aspect-ratio: calc(16/9);
+  width: 100%;
+  min-width: 0px;
+}

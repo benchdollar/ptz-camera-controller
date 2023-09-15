@@ -1,3 +1,9 @@
+:root {
+  --app-menu-width : 50px;
+}
+
+
+
 .App {
   text-align: center;
   background-color: #282c34;
@@ -9,14 +15,23 @@
   justify-content: space-between;
   align-content: stretch;
   color: white;
+  overflow: clip;
 }
 
-.PresetButton {
-  flex: 1 0 auto;
+.PresetStack {
+  width: calc(100vw - var(--app-menu-width));
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: space-evenly;
+  align-content: stretch;
 }
 
-.Sidebar {
-  min-width: 50px;
+
+.MenuBar {
+  min-width: var(--app-menu-width);
+  max-width: var(--app-menu-width);
   min-height: 100vh;
   display: flex;
   flex-direction: column;

@@ -1,11 +1,11 @@
 {
   "uuid": "1a14bcfa-e924-44a6-b0e1-01cb0032d6df",
-  "lastMigration": 24,
+  "lastMigration": 28,
   "name": "Ptz camera api",
   "endpointPrefix": "",
   "latency": 0,
   "port": 3003,
-  "hostname": "0.0.0.0",
+  "hostname": "",
   "routes": [
     {
       "uuid": "03fc3359-a16a-4714-a4bc-c6b4972ea362",
@@ -33,11 +33,13 @@
           "rulesOperator": "OR",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": true
+          "default": true,
+          "crudKey": "id"
         }
       ],
       "enabled": true,
-      "responseMode": null
+      "responseMode": null,
+      "type": "http"
     },
     {
       "uuid": "0b1e04ca-bc72-43bc-8cc8-dd2673f2fc08",
@@ -80,7 +82,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": true
+          "default": true,
+          "crudKey": "id"
         },
         {
           "uuid": "68320280-4f87-415f-9c04-6a0fb3754398",
@@ -105,11 +108,13 @@
           "rulesOperator": "OR",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         }
       ],
       "enabled": true,
-      "responseMode": null
+      "responseMode": null,
+      "type": "http"
     }
   ],
   "proxyMode": false,
@@ -143,5 +148,16 @@
       "value": ""
     }
   ],
-  "data": []
+  "data": [],
+  "folders": [],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "03fc3359-a16a-4714-a4bc-c6b4972ea362"
+    },
+    {
+      "type": "route",
+      "uuid": "0b1e04ca-bc72-43bc-8cc8-dd2673f2fc08"
+    }
+  ]
 }
