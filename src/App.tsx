@@ -20,7 +20,7 @@ cameraPresets.push(new Preset(5, "Table"));
 function App() {
   return (
     <Box className="App">
-      <Stack className="PresetStack" direction={"row"} spacing={1}>
+      <Stack className="PresetStack" direction={"row"} spacing={1} padding={1}>
         {cameraPresets.map( (preset, index) => {
           return <PresetBox preset={preset} key={index} />
         })}
