@@ -6,17 +6,23 @@ import Box from '@mui/material/Box';
 import { Stack } from '@mui/material';
 import './App.css';
 import PresetBox from './components/PresetBox';
+import Preset from './model/Preset';
 
 
-const cameraPresets = Array.of("1", "2", "3", "4", "5");
+const cameraPresets: Preset[] = new Array<Preset>();
+cameraPresets.push(new Preset(1, "Totale"));
+cameraPresets.push(new Preset(2, "Speaker"));
+cameraPresets.push(new Preset(3, "Speaker + Reader"));
+cameraPresets.push(new Preset(4, "Reader"));
+cameraPresets.push(new Preset(5, "Table"));
 
 
 function App() {
   return (
     <Box className="App">
-      <Stack className="PresetStack" direction={"row"} spacing={2}>
-        {cameraPresets.map( element => {
-          return <PresetBox title={"Preset " + element} key={element} />
+      <Stack className="PresetStack" direction={"row"} spacing={1}>
+        {cameraPresets.map( (preset, index) => {
+          return <PresetBox preset={preset} key={index} />
         })}
       </Stack>
       <Box className='MenuBar'>

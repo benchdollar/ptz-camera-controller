@@ -2,30 +2,28 @@ import React from 'react';
 import Box from "@mui/material/Box";
 
 import './PresetBox.css'
-import  testImage from '../assets/testimage_fullhd.gif'
-import { Card, CardActionArea, CardContent, CardMedia, Container, Typography } from '@mui/material';
+import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material';
+import Preset from '../model/Preset';
 
-interface PresetBoxProps {
-    title: string;
-    name?: string;
-    cameraPresetId?: number;
+interface PresetButtonProps {
+  preset: Preset;
 }
 
-const PresetButton = (props: PresetBoxProps) => {
+const PresetButton = ({preset}: PresetButtonProps) => {
     
     return (
       <Box className="PresetBox">
         <Card raised={true}>
           <CardActionArea>
-            <CardContent sx={{textAlign: 'left'}}>
+            <CardContent sx={{textAlign: 'left', p:1}}>
               <Typography variant="h6" component="div" className="PresetTitle">
-                {props.title}
+                {preset.getId() + ": " + preset.getTitle()}
               </Typography>
             </CardContent>
             <CardMedia
               component="img"
               className='PresetImage'
-              image={testImage}
+              image={preset.getImage()}
               alt="green iguana"
               
             />
