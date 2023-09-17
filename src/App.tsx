@@ -10,11 +10,12 @@ import Preset from './model/Preset';
 
 
 const cameraPresets: Preset[] = new Array<Preset>();
+cameraPresets.push(new Preset(0, "Default"));
 cameraPresets.push(new Preset(1, "Totale"));
-cameraPresets.push(new Preset(2, "Speaker"));
-cameraPresets.push(new Preset(3, "Speaker + Reader"));
-cameraPresets.push(new Preset(4, "Reader"));
 cameraPresets.push(new Preset(5, "Table"));
+cameraPresets.push(new Preset(4, "Reader"));
+cameraPresets.push(new Preset(3, "Speaker + Lectern"));
+cameraPresets.push(new Preset(2, "Lectern"));
 
 
 function App() {
